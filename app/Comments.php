@@ -11,4 +11,8 @@ class Comments extends Model
     public function posts(){
         return $this->belongsTo(Post::class, 'owner_post');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'owner_comment_id');
+    }
 }

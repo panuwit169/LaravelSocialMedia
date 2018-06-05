@@ -35,7 +35,7 @@
                             @csrf
                             <input type="hidden" name="id" value="{{$post->id}}" />
                             <input type="hidden" name="_method" value="delete" />
-                            <button type="submit" class="btn btn-sm btn-light">x</button>
+                            <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-light">x</button>
                         </form>
                     </div>
                     <p class="card-text">{{$post->body}}</p>
@@ -45,13 +45,14 @@
                             <input class="form-control" type="text" name="comment" placeholder="Comment here…" />
                         </div>
                         <input type="hidden" name="post_id" value="{{$post->id}}" />
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}" />
                         @csrf
                         <button type="submit" class="btn btn-success">comment</button>
                     </form>
                     @if(!$post->comments()->get()->isEmpty())
                     <div class="card-body">
                         @foreach($post->comments()->get() as $comment)
-                            <p class="card-text"><b>{{$comment->posts->owner->name}} {{$comment->posts->owner->surname}}</b> {{$comment->body}}</p>
+                            <p class="card-text"><b>{{$comment->user->name}} {{$comment->user->surname}}</b> {{$comment->body}}</p>
                         @endforeach
                     </div>
                     @endif

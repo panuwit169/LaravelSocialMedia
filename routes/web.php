@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -23,4 +19,4 @@ Route::delete('/post/delete/', 'PostController@DeletePost');
 Route::get('/post/likes/{id}', 'PostController@likes');
 Route::post('/comment', 'CommentController@CommentOnPost');
 
-Route::get('/log', 'HomeController@log');
+// Route::get('/log', 'HomeController@log');

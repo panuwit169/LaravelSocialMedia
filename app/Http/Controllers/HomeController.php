@@ -30,9 +30,9 @@ class HomeController extends Controller
         return view('home',['posts' => $all_post]);
     }
 
-    public function log()
-    {
-        $all_post = Post::all();
-        return $all_post;
-    }
+    // public function log()
+    // {
+    //     $all_post = Post::all();
+    //     return $all_post;
+    // }
 }
