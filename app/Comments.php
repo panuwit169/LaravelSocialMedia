@@ -9,6 +9,6 @@ class Comments extends Model
     protected $table = 'comments';
 
     public function posts(){
-        return $this->belongsTo(Post::class, 'owner_id');
+        return $this->belongsTo(Post::class, 'owner_post');
     }
 }

@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/post/new', 'PostController@post');
+Route::get('/post/likes/{id}', 'PostController@likes');
+Route::post('/comment', 'CommentController@CommentOnPost');
+
+Route::get('/log', 'HomeController@log');
