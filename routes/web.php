@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/post/new', 'PostController@post');
+Route::delete('/post/delete/', 'PostController@DeletePost');
 Route::get('/post/likes/{id}', 'PostController@likes');
 Route::post('/comment', 'CommentController@CommentOnPost');
 

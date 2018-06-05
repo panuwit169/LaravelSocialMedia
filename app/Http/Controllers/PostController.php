@@ -23,4 +23,11 @@ class PostController extends Controller
         $post->save();
         return back();
     }
+
+    public function DeletePost(Request $request){
+        $id = $request->id;
+        Post::find($id)->delete();
+
+        return back();
+    }
 }
